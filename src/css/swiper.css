@@ -1,0 +1,7 @@
+@import 'swiper/swiper-bundle';
+
+.swiper-containers, .swiper-wrappers, .swiper-slides,
+.swiper-container, .swiper-wrapper, .swiper-slide { @apply h-full; }
+.swiper-pagination-bullet {
+    @apply opacity-100 bg-white bg-opacity-75;
+}
