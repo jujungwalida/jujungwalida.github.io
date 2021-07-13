@@ -3,4 +3,5 @@
 @import "tailwindcss/utilities";
 
 @import "typography.css";
+@import "appearance.css";
 @import "swiper.css";

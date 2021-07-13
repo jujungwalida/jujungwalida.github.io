@@ -1,4 +1,8 @@
+import Alpine from 'alpinejs';
 import Swiper from 'swiper/bundle';
+
+window.Alpine = Alpine
+Alpine.start()
 
 const swiper = new Swiper('.swiper-container', {
     loop: true,
@@ -8,11 +12,6 @@ const swiper = new Swiper('.swiper-container', {
     autoplay: {
         delay: 3500,
         disableOnInteraction: false,
-    },
-
-    effect: 'fade',
-    fadeEffect: {
-        crossFade: true
     },
 
     pagination: {
