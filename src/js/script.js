@@ -1,5 +1,7 @@
 import Alpine from 'alpinejs';
 import Swiper from 'swiper/bundle';
+import MagicGrid from "magic-grid";
+import Masonry from 'masonry-layout';
 
 window.Alpine = Alpine
 Alpine.start()
