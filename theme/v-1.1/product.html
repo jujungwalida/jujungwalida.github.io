@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nada Salama International</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body x-data="{ open: false }">
+    <!-- header -->
+    <header class="bg-white relative z-50 shadow-sm">
+        <div class="w-10/12 relative z-50 py-0 mx-auto">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div><img class="w-8 h-auto" src="assets/img/logo.svg"></div>
+                    <div><p class="text-lg font-medium">Nada Salama International</p></div>
+                </div>
+                <div>
+                    <!-- mobile navigation -->
+                    <div class="lg:hidden">
+                        <button @click="open = !open" class="font-semibold whitespace-nowrap uppercase block px-1 py-8 focus:outline-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" /></svg>
+                        </button>
+
+                        <div x-show="open">
+                            <div class="bg-black bg-opacity-75 fixed inset-0 w-full h-screen"></div>
+                            <div @click.away="open = false" class="fixed inset-y-0 left-0 w-max max-w-xs">
+                                <div class="bg-white shadow-lg h-screen p-4">
+                                    <div class="flex flex-col h-full space-y-8">
+                                        <div class="flex justify-between items-center space-x-10">
+                                            <div class="flex items-center space-x-2">
+                                                <div><img class="h-auto w-6" src="assets/img/logo.svg"></div>
+                                                <div><p class="font-medium">Nada Salama International</div>
+                                            </div>
+                                            <div>
+                                                <button @click="open = false" class="block">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <ul>
+                                            <li><a class="whitespace-nowrap" href="#">Home</a></li>
+                                            <li>
+                                                <a class="whitespace-nowrap" href="#">Products</a>
+                                                <ul>
+                                                    <li><a class="whitespace-nowrap" href="#">Vanilla</a></li>
+                                                    <li><a class="whitespace-nowrap" href="#">Cinnamon</a></li>
+                                                    <li><a class="whitespace-nowrap" href="#">Cocoa</a></li>
+                                                    <li><a class="whitespace-nowrap" href="#">White Pepper</a></li>
+                                                    <li><a class="whitespace-nowrap" href="#">Palm Sugar</a></li>
+                                                    <li><a class="whitespace-nowrap" href="#">Coffee</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="whitespace-nowrap" href="#">Our Policies</a>
+                                                <ul>
+                                                    <li><a href="#">Return Policy</a></li>
+                                                    <li><a href="#">Shipping Policy</a></li>
+                                                    <li><a href="#">Privacy Policy</a></li>
+                                                    <li><a href="#">Terms and Conditions</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="whitespace-nowrap" href="#">Gallery</a></li>
+                                            <li><a class="whitespace-nowrap" href="#">About Us</a></li>
+                                            <li><a class="whitespace-nowrap" href="#">Contact Us</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- desktop navigation -->
+                    <div class="hidden lg:block">
+                        <ul class="font-normal flex items-center space-x-3">
+                            <li><a class="text-sm font-semibold whitespace-nowrap uppercase text-gray-600 block px-1 py-8 hover:text-black" href="#">Home</a></li>
+                            <li x-data="{ open: false }" @mouseleave="open = false" @click.away="open = false" class="relative">
+                                <a @mouseover="open = !open" class="text-sm font-semibold whitespace-nowrap uppercase text-gray-600 block px-1 py-8 hover:text-black" href="#">Products</a>
+                                <ul x-show="open" class="bg-white shadow-lg py-2 flex flex-col absolute">
+                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Vanilla</a></li>
+                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Cinnamon</a></li>
+                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Cocoa</a></li>
+                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">White Pepper</a></li>
+                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Palm Sugar</a></li>
+                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Coffee</a></li>
+                                </ul>
+                            </li>
+                            <li x-data="{ open: false }" @mouseleave="open = false" @click.away="open = false" class="relative">
+                                <a @mouseover="open = !open" class="text-sm font-semibold whitespace-nowrap uppercase text-gray-600 block px-1 py-8 hover:text-black" href="#">Our Policies</a>
+                                <ul x-show="open" class="bg-white shadow-lg py-2 flex flex-col absolute">
+                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Return Policy</a></li>
+                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Shipping Policy</a></li>
+                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Privacy Policy</a></li>
+                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Terms and Conditions</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="text-sm font-semibold whitespace-nowrap uppercase text-gray-600 block px-1 py-8 hover:text-black" href="#">Gallery</a></li>
+                            <li><a class="text-sm font-semibold whitespace-nowrap uppercase text-gray-600 block px-1 py-8 hover:text-black" href="#">About Us</a></li>
+                            <li><a class="text-sm font-semibold whitespace-nowrap uppercase text-gray-600 block px-1 py-8 hover:text-black" href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- content -->
+    <div class="bg-gray-100 relative z-0">
+        <div class="w-10/12 py-24 mx-auto">
+            <div class="grid grid-cols-1 gap-10">
+                <div>
+                    <article>
+                        <header class="mb-12">
+                            <h1 class="text-5xl font-black uppercase">Lorem Ipsum</h1>
+                        </header>
+
+                        <main class="text-xl">
+                            <p class="my-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit assumenda nisi tempora atque, voluptatibus nesciunt fugiat ex a delectus, quasi quas asperiores, vitae perferendis temporibus ab eaque obcaecati sed distinctio?</p>
+                            <p class="my-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit eaque amet alias odit voluptatibus. Placeat nisi ex beatae tempore nobis, ea voluptatem, recusandae odit odio eveniet quis exercitationem accusamus amet.</p>
+                            <p class="my-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum saepe id provident, dolor ratione, vitae incidunt veniam, magni ab culpa eveniet quae. In accusamus ex ea optio nostrum, error ab.</p>
+                        </main>
+                    </article>
+                </div>
+
+                <div class="border-t border-gray-200"></div>
+
+                <aside>
+                    <p class="font-black leading-none uppercase border-l-2 border-white pl-2">Related Products</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-10">
+                        <div class="h-full">
+                            <a class="group block relative h-full " href="#">
+                                <img class="object-cover w-full h-full" src="public/products/vanilla.jpg">
+
+                                <div class="absolute inset-0">
+                                    <div class="bg-secondary-red flex justify-center items-center h-full opacity-0 group-hover:opacity-100 transform duration-300">
+                                        <div class="text-white p-10">
+                                            <p class="text-sm font-black tracking-wide uppercase">Vanilla</p>
+                                            <p class="mt-4">Nam ipsum itaque magni repudiandae voluptatem molestias suscipit cum fuga quas neque! Iste, saepe. Alias quo quae, accusamus sapiente illo voluptate labore!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="h-full">
+                            <a class="group block relative h-full " href="#">
+                                <img class="object-cover w-full h-full" src="public/products/cinnamon.jpg">
+
+                                <div class="absolute inset-0">
+                                    <div class="bg-secondary-red flex justify-center items-center h-full opacity-0 group-hover:opacity-100 transform duration-300">
+                                        <div class="text-white p-10">
+                                            <p class="text-sm font-black tracking-wide uppercase">Cinnamon</p>
+                                            <p class="mt-4">Obcaecati odio explicabo aut ea voluptatibus animi enim, dolore nemo. Nobis ad quis dolorem quo ipsa aperiam dolor molestiae repudiandae? Officiis, voluptatibus.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="h-full">
+                            <a class="group block relative h-full " href="#">
+                                <img class="object-cover w-full h-full" src="public/products/cocoa.jpg">
+
+                                <div class="absolute inset-0">
+                                    <div class="bg-secondary-red flex justify-center items-center h-full opacity-0 group-hover:opacity-100 transform duration-300">
+                                        <div class="text-white p-10">
+                                            <p class="text-sm font-black tracking-wide uppercase">Cocoa</p>
+                                            <p class="mt-4">Quisquam blanditiis inventore magnam officiis maxime. At officiis hic, sint beatae odio minus nam distinctio magnam perferendis, dolorum corporis ipsa earum nihil!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="h-full">
+                            <a class="group block relative h-full " href="#">
+                                <img class="object-cover w-full h-full" src="public/products/white-pepper.jpg">
+
+                                <div class="absolute inset-0">
+                                    <div class="bg-secondary-red flex justify-center items-center h-full opacity-0 group-hover:opacity-100 transform duration-300">
+                                        <div class="text-white p-10">
+                                            <p class="text-sm font-black tracking-wide uppercase">White Pepper</p>
+                                            <p class="mt-4">Id, tenetur autem, explicabo itaque tempora a nostrum illo quas maxime cupiditate, nam voluptas quia nisi animi possimus? Repellendus soluta unde recusandae!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="h-full">
+                            <a class="group block relative h-full " href="#">
+                                <img class="object-cover w-full h-full" src="public/products/coffee.jpg">
+
+                                <div class="absolute inset-0">
+                                    <div class="bg-secondary-red flex justify-center items-center h-full opacity-0 group-hover:opacity-100 transform duration-300">
+                                        <div class="text-white p-10">
+                                            <p class="text-sm font-black tracking-wide uppercase">Coffee</p>
+                                            <p class="mt-4">Non delectus voluptate harum, voluptates quae fugit commodi ipsam accusamus, a fuga blanditiis officia id inventore iure illo libero nulla, sapiente iste.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="h-full">
+                            <a class="group block relative h-full " href="#">
+                                <img class="object-cover w-full h-full" src="public/products/palm-sugar.jpg">
+
+                                <div class="absolute inset-0">
+                                    <div class="bg-secondary-red flex justify-center items-center h-full opacity-0 group-hover:opacity-100 transform duration-300">
+                                        <div class="text-white p-10">
+                                            <p class="text-sm font-black tracking-wide uppercase">Palm Sugar</p>
+                                            <p class="mt-4">Officia vero sed culpa provident! Et, doloribus pariatur voluptates impedit quam quae eius odit cumque natus. Eaque provident doloremque quisquam quia at.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <!-- widgets -->
+    <div class="text-white bg-primary-blue">
+        <div class="w-10/12 py-12 mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-16">
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <div class="flex-shrink-0"><img class="h-auto w-6" src="assets/img/logo.svg"></div>
+                        <div class="flex-grow"><p class="font-medium">Nada Salama International</div>
+                    </div>
+
+                    <p class="mt-4 mb-8">We also continue to update the information about the company through social media, for the latest information you can follow our social media.</p>
+
+                    <ul class="flex space-x-3">
+                        <li><a class="text-gray-300 hover:text-white" href="#"><svg class="w-auto h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="currentColor"><!-- Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill-rule="evenodd" clip-rule="evenodd" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg></a></li>
+                        <li><a class="text-gray-300 hover:text-white" href="#"><svg class="w-auto h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><!-- Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill-rule="evenodd" clip-rule="evenodd" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg></a></li>
+                        <li><a class="text-gray-300 hover:text-white" href="#"><svg class="w-auto h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><!-- Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill-rule="evenodd" clip-rule="evenodd" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg></a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p class="font-black leading-none uppercase border-l-2 border-white pl-2">Products</p>
+
+                    <ul class="mt-4">
+                        <li><a class="whitespace-nowrap text-gray-300 hover:text-white" href="#">Vanilla</a></li>
+                        <li><a class="whitespace-nowrap text-gray-300 hover:text-white" href="#">Cinnamon</a></li>
+                        <li><a class="whitespace-nowrap text-gray-300 hover:text-white" href="#">Cocoa</a></li>
+                        <li><a class="whitespace-nowrap text-gray-300 hover:text-white" href="#">White Pepper</a></li>
+                        <li><a class="whitespace-nowrap text-gray-300 hover:text-white" href="#">Coffee</a></li>
+                        <li><a class="whitespace-nowrap text-gray-300 hover:text-white" href="#">Palm Sugar</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p class="font-black leading-none uppercase border-l-2 border-white pl-2">Support</p>
+
+                    <ul class="mt-4">
+                        <li class="flex space-x-2">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div class="flex-grow">Ruko Emerald Boulevard Blok EB 1 No 39, Harapan Indah Bekasi Indonesia 13980</div>
+                        </li>
+                        <li class="flex space-x-2">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                            </div>
+                            <div class="flex-grow"><a class="text-gray-300 hover:text-white" href="#">+62 123 456 789</a></div>
+                        </li>
+                        <li class="flex space-x-2">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                            </div>
+                            <div class="flex-grow"><a class="text-gray-300 hover:text-white" href="#">support@nadasalama.id</a></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <a href="#"><img class="opacity-75 w-full h-auto" src="assets/img/world-map.svg"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="text-white bg-secondary-blue border-t border-white border-opacity-50">
+        <div class="w-10/12 py-4 mx-auto">
+            <p class="text-sm">Copyrights &copy; 2021. All rights reserved by Nada Salama International</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

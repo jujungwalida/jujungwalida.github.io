@@ -1,0 +1,7 @@
+@import 'swiper/swiper-bundle';
+
+.swiper-pagination-bullet {
+    @apply opacity-100 bg-white bg-opacity-75;
+}
+
+.swiper-pagination-bullet-active { @apply bg-primary-blue; }
