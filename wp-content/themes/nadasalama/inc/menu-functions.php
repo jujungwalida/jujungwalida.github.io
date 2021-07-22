@@ -8,91 +8,27 @@
  * @link https://make.wordpress.org/themes/2020/07/06/printing-navigation-block-html-from-a-legacy-menu-in-themes/
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_One
- * @since Twenty Twenty-One 1.0
+ * @subpackage Nada_Salama
+ * @since Nada Salama 1.0
  */
 
-/**
- * Add a button to top-level menu items that has sub-menus.
- * An icon is added using CSS depending on the value of aria-expanded.
- *
- * @since Twenty Twenty-One 1.0
- *
- * @param string $output Nav menu item start element.
- * @param object $item   Nav menu item.
- * @param int    $depth  Depth.
- * @param object $args   Nav menu args.
- *
- * @return string Nav menu item start element.
- */
-function twenty_twenty_one_add_sub_menu_toggle( $output, $item, $depth, $args ) {
+function nada_salama_submenu_attributes( $menu ) {
+    $menu = preg_replace( '/ class="sub-menu"/', '/ x-show="open" class="bg-white shadow-lg py-2 absolute mt-6" /', $menu );
+
+    return $menu;
+}
+add_filter( 'wp_nav_menu', 'nada_salama_submenu_attributes' );
+
+function nada_salama_add_sub_menu_toggle( $output, $item, $depth, $args ) {
 	if ( 0 === $depth && in_array( 'menu-item-has-children', $item->classes, true ) ) {
 
 		// Add toggle button.
-		$output .= '<button class="sub-menu-toggle" aria-expanded="false" onClick="twentytwentyoneExpandSubMenu(this)">';
-		$output .= '<span class="icon-plus">' . twenty_twenty_one_get_icon_svg( 'ui', 'plus', 18 ) . '</span>';
-		$output .= '<span class="icon-minus">' . twenty_twenty_one_get_icon_svg( 'ui', 'minus', 18 ) . '</span>';
-		$output .= '<span class="screen-reader-text">' . esc_html__( 'Open menu', 'twentytwentyone' ) . '</span>';
-		$output .= '</button>';
+        $output = '<div class="text-gray-600 hover:text-black flex space-x-1">' . $output;
+        $output .= '<button @click="open = !open">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>';
+        $output .= '</button>';
+        $output .= '</div>';
 	}
 	return $output;
 }
-add_filter( 'walker_nav_menu_start_el', 'twenty_twenty_one_add_sub_menu_toggle', 10, 4 );
-
-/**
- * Detects the social network from a URL and returns the SVG code for its icon.
- *
- * @since Twenty Twenty-One 1.0
- *
- * @param string $uri Social link.
- * @param int    $size The icon size in pixels.
- *
- * @return string
- */
-function twenty_twenty_one_get_social_link_svg( $uri, $size = 24 ) {
-	return Twenty_Twenty_One_SVG_Icons::get_social_link_svg( $uri, $size );
-}
-
-/**
- * Displays SVG icons in the footer navigation.
- *
- * @param string   $item_output The menu item's starting HTML output.
- * @param WP_Post  $item        Menu item data object.
- * @param int      $depth       Depth of the menu. Used for padding.
- * @param stdClass $args        An object of wp_nav_menu() arguments.
- * @return string The menu item output with social icon.
- */
-function twenty_twenty_one_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
-	// Change SVG icon inside social links menu if there is supported URL.
-	if ( 'footer' === $args->theme_location ) {
-		$svg = twenty_twenty_one_get_social_link_svg( $item->url, 24 );
-		if ( ! empty( $svg ) ) {
-			$item_output = str_replace( $args->link_before, $svg, $item_output );
-		}
-	}
-
-	return $item_output;
-}
-
-add_filter( 'walker_nav_menu_start_el', 'twenty_twenty_one_nav_menu_social_icons', 10, 4 );
-
-/**
- * Filters the arguments for a single nav menu item.
- *
- * @since Twenty Twenty-One 1.0
- *
- * @param stdClass $args  An object of wp_nav_menu() arguments.
- * @param WP_Post  $item  Menu item data object.
- * @param int      $depth Depth of menu item. Used for padding.
- *
- * @return stdClass
- */
-function twenty_twenty_one_add_menu_description_args( $args, $item, $depth ) {
-	$args->link_after = '';
-	if ( 0 === $depth && isset( $item->description ) && $item->description ) {
-		// The extra <span> element is here for styling purposes: Allows the description to not be underlined on hover.
-		$args->link_after = '<p class="menu-item-description"><span>' . $item->description . '</span></p>';
-	}
-	return $args;
-}
-add_filter( 'nav_menu_item_args', 'twenty_twenty_one_add_menu_description_args', 10, 3 );
+add_filter( 'walker_nav_menu_start_el', 'nada_salama_add_sub_menu_toggle', 10, 4 );

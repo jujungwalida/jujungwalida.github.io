@@ -67,7 +67,7 @@ if ( ! function_exists( 'nada_salama_setup' ) ) {
 
 		register_nav_menus(
 			array(
-				'menu' => esc_html__( 'Menu', 'nadasalama' ),
+				'primary' => esc_html__( 'Primary Menu', 'nadasalama' ),
 			)
 		);
 
@@ -126,6 +126,20 @@ if ( ! function_exists( 'nada_salama_setup' ) ) {
 		// Add support for custom units.
 		// This was removed in WordPress 5.6 but is still required to properly support WP 5.5.
 		add_theme_support( 'custom-units' );
+
+		// Add support for custom logo.
+		add_theme_support(
+			'custom-logo',
+			array(
+				'height'               => 100,
+				'width'                => 400,
+				'flex-height'          => true,
+				'flex-width'           => true,
+				'header-text'          => array( 'site-title', 'site-description' ),
+				'unlink-homepage-logo' => true,
+				'class'                => 'w-11 h-auto',
+			)
+		);
 	}
 }
 add_action( 'after_setup_theme', 'nada_salama_setup' );
@@ -165,7 +179,7 @@ function nada_salama_scripts() {
         get_template_directory_uri() . '/assets/css/style.css',
         array(),
         wp_get_theme()->get( 'Version' ) );
-	
+
     wp_enqueue_script(
 		'nada-salama-script',
 		get_template_directory_uri() . '/assets/js/script.js',
@@ -219,7 +233,7 @@ require get_template_directory() . '/classes/class-nada-salama-svg-icons.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 // Menu functions and filters.
-require get_template_directory() . '/inc/menu-functions.php';
+//require get_template_directory() . '/inc/menu-functions.php';
 
 // Custom template tags for the theme.
 require get_template_directory() . '/inc/template-tags.php';
@@ -230,3 +244,6 @@ new Nada_Salama_Customize();
 
 // Custom post types
 require get_template_directory() . '/cpt/product.php';
+
+// Custom walker nav menu
+require get_template_directory() . '/classes/class-nada-salama-walker-nav-menu.php';

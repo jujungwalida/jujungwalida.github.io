@@ -13,13 +13,20 @@
         <div class="w-10/12 relative z-50 py-0 mx-auto">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-3">
-                    <div><img class="w-8 h-auto" src="assets/img/logo.svg"></div>
-                    <div><p class="text-lg font-medium">Nada Salama International</p></div>
+                    <div>
+                        <img class="w-11 h-auto" src="assets/img/logo.svg">
+                    </div>
+
+                    <div>
+                        <p class="text-lg font-medium leading-snug">Nada Salama International</p>
+                        <p class="text-sm">Just another WordPress site</p>
+                    </div>
                 </div>
-                <div>
+
+                <nav class="py-8">
                     <!-- mobile navigation -->
-                    <div class="lg:hidden">
-                        <button @click="open = !open" class="font-semibold whitespace-nowrap uppercase block px-1 py-8 focus:outline-none">
+                    <div id="mobile-nav" class="lg:hidden">
+                        <button @click="open = !open" class="font-semibold whitespace-nowrap uppercase block px-1 focus:outline-none">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" /></svg>
                         </button>
 
@@ -40,31 +47,63 @@
                                             </div>
                                         </div>
 
-                                        <ul>
-                                            <li><a class="whitespace-nowrap" href="#">Home</a></li>
-                                            <li>
-                                                <a class="whitespace-nowrap" href="#">Products</a>
-                                                <ul>
-                                                    <li><a class="whitespace-nowrap" href="#">Vanilla</a></li>
-                                                    <li><a class="whitespace-nowrap" href="#">Cinnamon</a></li>
-                                                    <li><a class="whitespace-nowrap" href="#">Cocoa</a></li>
-                                                    <li><a class="whitespace-nowrap" href="#">White Pepper</a></li>
-                                                    <li><a class="whitespace-nowrap" href="#">Palm Sugar</a></li>
-                                                    <li><a class="whitespace-nowrap" href="#">Coffee</a></li>
+                                        <ul class="top-level-menu font-normal flex flex-col lg:flex-row lg:items-center lg:space-x-4">
+                                            <li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                                <div class="text-gray-600 hover:text-black flex space-x-1">
+                                                    <a class="text-sm font-semibold whitespace-nowrap uppercase block" href="#">Home</a>
+                                                </div>
+                                            </li>
+                                            <li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                                <div class="text-gray-600 hover:text-black flex space-x-1">
+                                                    <a class="text-sm font-semibold whitespace-nowrap uppercase block" href="#">Products</a>
+                                                    <button @click="open = !open">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                                                    </button>
+                                                </div>
+
+                                                <ul x-show="open" class="bg-white lg:shadow-lg py-2 lg:absolute lg:mt-6">
+                                                    <li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                                        <div class="text-gray-600 hover:text-black flex space-x-1">
+                                                            <a class="text-sm whitespace-nowrap block w-full px-6 py-2 hover:bg-gray-200" href="#">Vanilla</a>
+                                                        </div>
+                                                    </li>
+                                                    <li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                                        <div class="text-gray-600 hover:text-black flex space-x-1">
+                                                            <a class="text-sm whitespace-nowrap block w-full px-6 py-2 hover:bg-gray-200" href="#">Cinnamon</a>
+                                                        </div>
+                                                    </li>
                                                 </ul>
                                             </li>
-                                            <li>
-                                                <a class="whitespace-nowrap" href="#">Our Policies</a>
-                                                <ul>
-                                                    <li><a href="#">Return Policy</a></li>
-                                                    <li><a href="#">Shipping Policy</a></li>
-                                                    <li><a href="#">Privacy Policy</a></li>
-                                                    <li><a href="#">Terms and Conditions</a></li>
+                                            <li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                                <div class="text-gray-600 hover:text-black flex space-x-1">
+                                                    <a class="text-sm font-semibold whitespace-nowrap uppercase block" href="#">Policies</a>
+                                                    <button @click="open = !open">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                                                    </button>
+                                                </div>
+
+                                                <ul x-show="open" class="bg-white lg:shadow-lg py-2 lg:absolute lg:mt-6">
+                                                    <li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                                        <div class="text-gray-600 hover:text-black flex space-x-1">
+                                                            <a class="text-sm whitespace-nowrap block w-full px-6 py-2 hover:bg-gray-200" href="#">Return Policy</a>
+                                                        </div>
+                                                    </li>
+                                                    <li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                                        <div class="text-gray-600 hover:text-black flex space-x-1">
+                                                            <a class="text-sm whitespace-nowrap block w-full px-6 py-2 hover:bg-gray-200" href="#">Shipping Policy</a>
+                                                        </div>
+                                                    </li>
                                                 </ul>
                                             </li>
-                                            <li><a class="whitespace-nowrap" href="#">Gallery</a></li>
-                                            <li><a class="whitespace-nowrap" href="#">About Us</a></li>
-                                            <li><a class="whitespace-nowrap" href="#">Contact Us</a></li>
+                                            <li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                                <div class="text-gray-600 hover:text-black flex space-x-1">
+                                                    <a class="text-sm font-semibold whitespace-nowrap uppercase block" href="#">Gallery</a>
+                                                </div>
+                                            </li><li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                                <div class="text-gray-600 hover:text-black flex space-x-1">
+                                                    <a class="text-sm font-semibold whitespace-nowrap uppercase block" href="#">About Us</a>
+                                                </div>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -73,35 +112,67 @@
                     </div>
 
                     <!-- desktop navigation -->
-                    <div class="hidden lg:block">
-                        <ul class="font-normal flex items-center space-x-3">
-                            <li><a class="text-sm font-semibold whitespace-nowrap uppercase text-gray-600 block px-1 py-8 hover:text-black" href="#">Home</a></li>
-                            <li x-data="{ open: false }" @mouseleave="open = false" @click.away="open = false" class="relative">
-                                <a @mouseover="open = !open" class="text-sm font-semibold whitespace-nowrap uppercase text-gray-600 block px-1 py-8 hover:text-black" href="#">Products</a>
-                                <ul x-show="open" class="bg-white shadow-lg py-2 flex flex-col absolute">
-                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Vanilla</a></li>
-                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Cinnamon</a></li>
-                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Cocoa</a></li>
-                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">White Pepper</a></li>
-                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Palm Sugar</a></li>
-                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Coffee</a></li>
+                    <div id="desktop-nav" class="hidden lg:block">
+                        <ul class="top-level-menu font-normal flex items-center space-x-4">
+                            <li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                <div class="text-gray-600 hover:text-black flex space-x-1">
+                                    <a class="text-sm font-semibold whitespace-nowrap uppercase block" href="#">Home</a>
+                                </div>
+                            </li>
+                            <li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                <div class="text-gray-600 hover:text-black flex space-x-1">
+                                    <a class="text-sm font-semibold whitespace-nowrap uppercase block" href="#">Products</a>
+                                    <button @click="open = !open">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                                    </button>
+                                </div>
+
+                                <ul x-show="open" class="bg-white shadow-lg py-2 absolute mt-6">
+                                    <li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                        <div class="text-gray-600 hover:text-black flex space-x-1">
+                                            <a class="text-sm whitespace-nowrap block w-full px-6 py-2 hover:bg-gray-200" href="#">Vanilla</a>
+                                        </div>
+                                    </li>
+                                    <li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                        <div class="text-gray-600 hover:text-black flex space-x-1">
+                                            <a class="text-sm whitespace-nowrap block w-full px-6 py-2 hover:bg-gray-200" href="#">Cinnamon</a>
+                                        </div>
+                                    </li>
                                 </ul>
                             </li>
-                            <li x-data="{ open: false }" @mouseleave="open = false" @click.away="open = false" class="relative">
-                                <a @mouseover="open = !open" class="text-sm font-semibold whitespace-nowrap uppercase text-gray-600 block px-1 py-8 hover:text-black" href="#">Our Policies</a>
-                                <ul x-show="open" class="bg-white shadow-lg py-2 flex flex-col absolute">
-                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Return Policy</a></li>
-                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Shipping Policy</a></li>
-                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Privacy Policy</a></li>
-                                    <li><a class="text-sm text-gray-900 whitespace-nowrap block px-6 py-2 hover:text-black hover:bg-gray-200" href="#">Terms and Conditions</a></li>
+                            <li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                <div class="text-gray-600 hover:text-black flex space-x-1">
+                                    <a class="text-sm font-semibold whitespace-nowrap uppercase block" href="#">Policies</a>
+                                    <button @click="open = !open">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                                    </button>
+                                </div>
+
+                                <ul x-show="open" class="bg-white shadow-lg py-2 absolute mt-6">
+                                    <li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                        <div class="text-gray-600 hover:text-black flex space-x-1">
+                                            <a class="text-sm whitespace-nowrap block w-full px-6 py-2 hover:bg-gray-200" href="#">Return Policy</a>
+                                        </div>
+                                    </li>
+                                    <li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                        <div class="text-gray-600 hover:text-black flex space-x-1">
+                                            <a class="text-sm whitespace-nowrap block w-full px-6 py-2 hover:bg-gray-200" href="#">Shipping Policy</a>
+                                        </div>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><a class="text-sm font-semibold whitespace-nowrap uppercase text-gray-600 block px-1 py-8 hover:text-black" href="#">Gallery</a></li>
-                            <li><a class="text-sm font-semibold whitespace-nowrap uppercase text-gray-600 block px-1 py-8 hover:text-black" href="#">About Us</a></li>
-                            <li><a class="text-sm font-semibold whitespace-nowrap uppercase text-gray-600 block px-1 py-8 hover:text-black" href="#">Contact Us</a></li>
+                            <li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                <div class="text-gray-600 hover:text-black flex space-x-1">
+                                    <a class="text-sm font-semibold whitespace-nowrap uppercase block" href="#">Gallery</a>
+                                </div>
+                            </li><li x-data="{ open: false }" @click.away="open = false" class="relative">
+                                <div class="text-gray-600 hover:text-black flex space-x-1">
+                                    <a class="text-sm font-semibold whitespace-nowrap uppercase block" href="#">About Us</a>
+                                </div>
+                            </li>
                         </ul>
                     </div>
-                </div>
+                </nav>
             </div>
         </div>
     </header>
@@ -373,7 +444,7 @@
     <div class="text-white bg-primary-blue">
         <div class="w-10/12 py-12 mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-16">
-                <div>
+                <section class="widget">
                     <div class="flex items-center space-x-2">
                         <div class="flex-shrink-0"><img class="h-auto w-6" src="assets/img/logo.svg"></div>
                         <div class="flex-grow"><p class="font-medium">Nada Salama International</div>
@@ -386,9 +457,9 @@
                         <li><a class="text-gray-300 hover:text-white" href="#"><svg class="w-auto h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><!-- Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill-rule="evenodd" clip-rule="evenodd" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg></a></li>
                         <li><a class="text-gray-300 hover:text-white" href="#"><svg class="w-auto h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><!-- Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill-rule="evenodd" clip-rule="evenodd" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg></a></li>
                     </ul>
-                </div>
+                </section>
 
-                <div>
+                <section class="widget">
                     <p class="font-black leading-none uppercase border-l-2 border-white pl-2">Products</p>
 
                     <ul class="mt-4">
@@ -399,9 +470,9 @@
                         <li><a class="whitespace-nowrap text-gray-300 hover:text-white" href="#">Coffee</a></li>
                         <li><a class="whitespace-nowrap text-gray-300 hover:text-white" href="#">Palm Sugar</a></li>
                     </ul>
-                </div>
+                </section>
 
-                <div>
+                <section class="widget">
                     <p class="font-black leading-none uppercase border-l-2 border-white pl-2">Support</p>
 
                     <ul class="mt-4">
@@ -424,11 +495,11 @@
                             <div class="flex-grow"><a class="text-gray-300 hover:text-white" href="#">support@nadasalama.id</a></div>
                         </li>
                     </ul>
-                </div>
+                </section>
 
-                <div>
+                <section class="widget">
                     <a href="#"><img class="opacity-75 w-full h-auto" src="assets/img/world-map.svg"></a>
-                </div>
+                </section>
             </div>
         </div>
     </div>

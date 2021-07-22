@@ -2,24 +2,20 @@
 
 get_header();
 
-?><div id="content"><?php
+if ( have_posts() ) {
 
-	if ( have_posts() ) {
+	while ( have_posts() ) {
+		the_post();
 
-		while ( have_posts() ) {
-			the_post();
-
-			get_template_part( 'template-parts/content/content', get_theme_mod( 'display_excerpt_or_full_post', 'excerpt' ) );
-		}
-
-		nada_salama_the_posts_navigation();
-
-	} else {
-
-		get_template_part( 'template-parts/content/content-none' );
-
+		get_template_part( 'template-parts/content/content', get_theme_mod( 'display_excerpt_or_full_post', 'excerpt' ) );
 	}
 
-?></div><?php
+	nada_salama_the_posts_navigation();
+
+} else {
+
+	get_template_part( 'template-parts/content/content-none' );
+
+}
 
 get_footer();

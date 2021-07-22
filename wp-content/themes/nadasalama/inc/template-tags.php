@@ -243,3 +243,17 @@ if ( ! function_exists( 'nada_salama_the_posts_navigation' ) ) {
 		);
 	}
 }
+
+if ( ! function_exists( 'nada_salama_current_year' ) ) {
+
+	/**
+	 * Prints current year.
+	 *
+	 * @return void
+	 */
+	function nada_salama_current_year( $atts ){
+		return date('Y');
+	}
+	add_shortcode( 'year', 'nada_salama_current_year' );
+
+}

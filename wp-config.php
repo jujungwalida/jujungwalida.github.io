@@ -88,3 +88,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+
+/** Block external HTTP requests */
+define('WP_HTTP_BLOCK_EXTERNAL', true);
