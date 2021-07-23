@@ -5,6 +5,25 @@
  * @package WordPress
  */
 
+if( ! function_exists( 'construction_landing_page_home_section') ):
+	/**
+	 * Check if home page section are enable or not.
+	*/
+	function nada_salama_home_section(){
+
+		$nada_salama_sections = array( 'banner', 'products', 'about', 'why_choose_us' );
+		$enable_section = false;
+
+		foreach( $nada_salama_sections as $section ){
+			if( get_theme_mod( 'nada_salama_' . $section . '_enable_disable' ) == 1 ){
+				$enable_section = true;
+			}
+		}
+
+		return $enable_section;
+	}
+endif;
+
 /**
  * Adds custom classes to the array of body classes.
  *

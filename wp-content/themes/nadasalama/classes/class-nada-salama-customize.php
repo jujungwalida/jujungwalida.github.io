@@ -15,6 +15,7 @@ if ( ! class_exists( 'Nada_Salama_Customize' ) ) {
 		 * @access public
 		 */
 		public function __construct() {
+			// Register costumizer
 			add_action( 'customize_register', array( $this, 'register' ) );
 		}
 
@@ -78,11 +79,11 @@ if ( ! class_exists( 'Nada_Salama_Customize' ) ) {
 				)
 			);
 
-			/** Option list of all page */   
+			/** Option list of all page */
 			$nada_salama_options_pages     = array();
 			$nada_salama_options_pages_obj = get_posts( 'post_type=page&posts_per_page=-1' );
 			$nada_salama_options_pages[''] = __( 'Choose Page', 'nadasalama' );
-			
+
 			foreach ( $nada_salama_options_pages_obj as $nada_salama_pages ) {
 				$nada_salama_options_pages[$nada_salama_pages->ID] = $nada_salama_pages->post_title;
 			}
@@ -123,6 +124,177 @@ if ( ! class_exists( 'Nada_Salama_Customize' ) ) {
 				)
 			);
 
+			/** Control Enable/disable */
+			$wp_customize->add_setting(
+				'nada_salama_banner_enable_disable',
+				array(
+					'default' => false,
+					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				'nada_salama_banner_enable_disable',
+				array(
+					'section' => 'nada_salama_banner_section',
+					'label' => esc_html__( 'Enable Section', 'nadasalama'),
+					'type' => 'checkbox',
+				)
+			);
+
+			/** Control Image for Banner 1 */
+			$wp_customize->add_setting(
+				'nada_salama_banner_1_image',
+				array(
+					'sanitize_callback' => array( __CLASS__, 'sanitize_image' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Upload_Control(
+					$wp_customize,
+					'nada_salama_banner_1_image',
+					array(
+						'label'    => esc_html__( 'Banner 1', 'nadasalama' ),
+						'section'  => 'nada_salama_banner_section',
+					)
+				)
+			);
+
+			/** Control Title for Banner 1 */
+            $wp_customize->add_setting(
+                'nada_salama_banner_1_title',
+                array(
+                    'sanitize_callback'       => 'wp_filter_nohtml_kses',
+                )
+            );
+
+            $wp_customize->add_control(
+                'nada_salama_banner_1_title',
+                array(
+                    'section'        => 'nada_salama_banner_section',
+                    'type'           => 'text',
+                )
+            );
+
+			/** Control Description for Banner 1 */
+            $wp_customize->add_setting(
+                'nada_salama_banner_1_description',
+                array(
+                    'sanitize_callback'       => 'wp_filter_nohtml_kses',
+                )
+            );
+
+            $wp_customize->add_control(
+                'nada_salama_banner_1_description',
+                array(
+                    'section'        => 'nada_salama_banner_section',
+                    'type'           => 'textarea',
+                )
+            );
+
+			/** Control Image for Banner 2 */
+			$wp_customize->add_setting(
+				'nada_salama_banner_2_image',
+				array(
+					'sanitize_callback' => array( __CLASS__, 'sanitize_image' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Upload_Control(
+					$wp_customize,
+					'nada_salama_banner_2_image',
+					array(
+						'label'    => esc_html__( 'Banner 2', 'nadasalama' ),
+						'section'  => 'nada_salama_banner_section',
+					)
+				)
+			);
+
+			/** Control Title for Banner 2 */
+            $wp_customize->add_setting(
+                'nada_salama_banner_2_title',
+                array(
+                    'sanitize_callback'       => 'wp_filter_nohtml_kses',
+                )
+            );
+
+            $wp_customize->add_control(
+                'nada_salama_banner_2_title',
+                array(
+                    'section'        => 'nada_salama_banner_section',
+                    'type'           => 'text',
+                )
+            );
+
+			/** Control Description for Banner 2 */
+            $wp_customize->add_setting(
+                'nada_salama_banner_2_description',
+                array(
+                    'sanitize_callback'       => 'wp_filter_nohtml_kses',
+                )
+            );
+
+            $wp_customize->add_control(
+                'nada_salama_banner_2_description',
+                array(
+                    'section'        => 'nada_salama_banner_section',
+                    'type'           => 'textarea',
+                )
+            );
+
+			/** Control Image for Banner 3 */
+			$wp_customize->add_setting(
+				'nada_salama_banner_3_image',
+				array(
+					'sanitize_callback' => array( __CLASS__, 'sanitize_image' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Upload_Control(
+					$wp_customize,
+					'nada_salama_banner_3_image',
+					array(
+						'label'    => esc_html__( 'Banner 3', 'nadasalama' ),
+						'section'  => 'nada_salama_banner_section',
+					)
+				)
+			);
+
+			/** Control Title for Banner 3 */
+            $wp_customize->add_setting(
+                'nada_salama_banner_3_title',
+                array(
+                    'sanitize_callback'       => 'wp_filter_nohtml_kses',
+                )
+            );
+
+            $wp_customize->add_control(
+                'nada_salama_banner_3_title',
+                array(
+                    'section'        => 'nada_salama_banner_section',
+                    'type'           => 'text',
+                )
+            );
+
+			/** Control Description for Banner 3 */
+            $wp_customize->add_setting(
+                'nada_salama_banner_3_description',
+                array(
+                    'sanitize_callback'       => 'wp_filter_nohtml_kses',
+                )
+            );
+
+            $wp_customize->add_control(
+                'nada_salama_banner_3_description',
+                array(
+                    'section'        => 'nada_salama_banner_section',
+                    'type'           => 'textarea',
+                )
+            );
+
 			/**
 			 * Section Products
 			 */
@@ -131,7 +303,7 @@ if ( ! class_exists( 'Nada_Salama_Customize' ) ) {
 				array(
 					'panel' => 'nada_salama_home_page_settings_panel',
 					'priority' => 20,
-					'title' => __( 'Product', 'nadasalama' ),
+					'title' => __( 'Products', 'nadasalama' ),
 				)
 			);
 
@@ -153,55 +325,37 @@ if ( ! class_exists( 'Nada_Salama_Customize' ) ) {
 				)
 			);
 
-            /** Control Description */
-            $wp_customize->add_setting(
-				'nada_salama_products_description',
-				array(
-					'sanitize_callback' => 'sanitize_text_field',
-				)
-			);
-
-			$wp_customize->add_control(
-				'nada_salama_products_description',
-				array(
-					'section' => 'nada_salama_products_section',
-					'label' => esc_html__( 'Description', 'nadasalama' ),
-					'type' => 'text',
-				)
-			);
-
 			/** Control Page */
             $wp_customize->add_setting(
                 'nada_salama_products_page',
                 array(
-                    'type'       => 'option',
-                    'capability' => 'manage_options',
+                    'sanitize_callback' => 'absint',
                 )
             );
-    
+
             $wp_customize->add_control(
                 'nada_salama_products_page',
                 array(
-                    'label'          => __( 'Select Page' ),
+                    'label'          => esc_html__( 'Select Page' ),
                     'section'        => 'nada_salama_products_section',
                     'type'           => 'dropdown-pages',
                     'allow_addition' => false,
                 )
             );
 
-			/** Display Page */
+			/** Display Excerpt or Full */
 			$wp_customize->add_setting(
-				'nada_salama_products_display',
+				'nada_salama_products_excerpt_full',
 				array(
 					'sanitize_callback' => function( $value ) {
 						return 'excerpt' === $value || 'full' === $value ? $value : 'excerpt';
 					},
-					'default' => 'excerpt',
+					'default' => 'full',
 				)
 			);
 
 			$wp_customize->add_control(
-				'nada_salama_products_display',
+				'nada_salama_products_excerpt_full',
 				array(
 					'section' => 'nada_salama_products_section',
 					'label' => esc_html__( 'Show', 'nadasalama' ),
@@ -240,24 +394,6 @@ if ( ! class_exists( 'Nada_Salama_Customize' ) ) {
 					'section' => 'nada_salama_about_section',
 					'label' => esc_html__( 'Enable Section', 'nadasalama'),
 					'type' => 'checkbox',
-					'label' =>__( 'Enable Section', 'nadasalama' ),
-				)
-			);
-
-            /** Control Description */
-            $wp_customize->add_setting(
-				'nada_salama_about_description',
-				array(
-					'sanitize_callback' => 'sanitize_text_field',
-				)
-			);
-
-			$wp_customize->add_control(
-				'nada_salama_about_description',
-				array(
-					'section' => 'nada_salama_about_section',
-					'label' => esc_html__( 'Description', 'nadasalama' ),
-					'type' => 'text',
 				)
 			);
 
@@ -265,34 +401,33 @@ if ( ! class_exists( 'Nada_Salama_Customize' ) ) {
             $wp_customize->add_setting(
                 'nada_salama_about_page',
                 array(
-                    'type'       => 'option',
-                    'capability' => 'manage_options',
+					'sanitize_callback' => 'absint',
                 )
             );
-    
+
             $wp_customize->add_control(
                 'nada_salama_about_page',
                 array(
-                    'label'          => __( 'Select Page' ),
+                    'label'          => esc_html__( 'Select Page' ),
                     'section'        => 'nada_salama_about_section',
                     'type'           => 'dropdown-pages',
                     'allow_addition' => false,
                 )
             );
 
-			/** Display Page */
+			/** Display Excerpt or Full */
 			$wp_customize->add_setting(
-				'nada_salama_about_display',
+				'nada_salama_about_excerpt_full',
 				array(
 					'sanitize_callback' => function( $value ) {
 						return 'excerpt' === $value || 'full' === $value ? $value : 'excerpt';
 					},
-					'default' => 'excerpt',
+					'default' => 'full',
 				)
 			);
 
 			$wp_customize->add_control(
-				'nada_salama_about_display',
+				'nada_salama_about_excerpt_full',
 				array(
 					'section' => 'nada_salama_about_section',
 					'label' => esc_html__( 'Show', 'nadasalama' ),
@@ -301,6 +436,25 @@ if ( ! class_exists( 'Nada_Salama_Customize' ) ) {
 						'excerpt' => esc_html__( 'Summary', 'nadasalama' ),
 						'full' => esc_html__( 'Full', 'nadasalama' ),
 					),
+				)
+			);
+
+			/** Control Image for Page */
+			$wp_customize->add_setting(
+				'nada_salama_about_image',
+				array(
+					'sanitize_callback' => array( __CLASS__, 'sanitize_image' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Upload_Control(
+					$wp_customize,
+					'nada_salama_about_image',
+					array(
+						'label'    => esc_html__( 'Image', 'nadasalama' ),
+						'section'  => 'nada_salama_about_section',
+					)
 				)
 			);
 
@@ -331,24 +485,6 @@ if ( ! class_exists( 'Nada_Salama_Customize' ) ) {
 					'section' => 'nada_salama_why_choose_us_section',
 					'label' => esc_html__( 'Enable Section', 'nadasalama'),
 					'type' => 'checkbox',
-					'label' =>__( 'Enable Section', 'nadasalama' ),
-				)
-			);
-
-            /** Control Description */
-            $wp_customize->add_setting(
-				'nada_salama_why_choose_us_description',
-				array(
-					'sanitize_callback' => 'sanitize_text_field',
-				)
-			);
-
-			$wp_customize->add_control(
-				'nada_salama_why_choose_us_description',
-				array(
-					'section' => 'nada_salama_why_choose_us_section',
-					'label' => esc_html__( 'Description', 'nadasalama' ),
-					'type' => 'text',
 				)
 			);
 
@@ -356,34 +492,33 @@ if ( ! class_exists( 'Nada_Salama_Customize' ) ) {
 			$wp_customize->add_setting(
                 'nada_salama_why_choose_us_page',
                 array(
-                    'type'       => 'option',
-                    'capability' => 'manage_options',
+                    'sanitize_callback' => 'absint',
                 )
             );
-    
+
             $wp_customize->add_control(
                 'nada_salama_why_choose_us_page',
                 array(
-                    'label'          => __( 'Select Page' ),
+                    'label'          => esc_html__( 'Select Page' ),
                     'section'        => 'nada_salama_why_choose_us_section',
                     'type'           => 'dropdown-pages',
                     'allow_addition' => false,
                 )
             );
 
-			/** Display Page */
+			/** Display Excerpt or Full */
 			$wp_customize->add_setting(
-				'nada_salama_why_choose_us_display',
+				'nada_salama_why_choose_us_excerpt_full',
 				array(
 					'sanitize_callback' => function( $value ) {
 						return 'excerpt' === $value || 'full' === $value ? $value : 'excerpt';
 					},
-					'default' => 'excerpt',
+					'default' => 'full',
 				)
 			);
 
 			$wp_customize->add_control(
-				'nada_salama_why_choose_us_display',
+				'nada_salama_why_choose_us_excerpt_full',
 				array(
 					'section' => 'nada_salama_why_choose_us_section',
 					'label' => esc_html__( 'Show', 'nadasalama' ),
@@ -415,6 +550,23 @@ if ( ! class_exists( 'Nada_Salama_Customize' ) ) {
 					'panel' => 'nada_salama_contact_and_social_media_panel',
 					'priority' => 20,
 					'title' => __( 'Contact', 'nadasalama' ),
+				)
+			);
+
+			/** Control About Company */
+			$wp_customize->add_setting(
+				'nada_salama_about_company',
+				array(
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+
+			$wp_customize->add_control(
+				'nada_salama_about_company',
+				array(
+					'section' => 'nada_salama_contact_section',
+					'label' => esc_html__( 'About Company', 'nadasalama' ),
+					'type' => 'textarea',
 				)
 			);
 
@@ -466,13 +618,14 @@ if ( ! class_exists( 'Nada_Salama_Customize' ) ) {
 				array(
 					'section' => 'nada_salama_contact_section',
 					'label' => esc_html__( 'Phone Number', 'nadasalama' ),
+					'description' => 'Only numbers, example: 628123456789',
 					'type' => '',
 				)
 			);
 
-			/** Control Display Phone Link */
+			/** Control Phone Display Link */
             $wp_customize->add_setting(
-				'nada_salama_display_phone',
+				'nada_salama_phone_display_link',
 				array(
 					'sanitize_callback' => function( $value ) {
 						return 'phone' === $value || 'whatsapp' === $value ? $value : 'phone';
@@ -482,7 +635,7 @@ if ( ! class_exists( 'Nada_Salama_Customize' ) ) {
 			);
 
 			$wp_customize->add_control(
-				'nada_salama_display_phone',
+				'nada_salama_phone_display_link',
 				array(
 					'section' => 'nada_salama_contact_section',
 					'label' => esc_html__( 'Link Phone Number as', 'nadasalama' ),
@@ -590,7 +743,6 @@ if ( ! class_exists( 'Nada_Salama_Customize' ) ) {
 					'type' => 'url',
 				)
 			);
-
 		}
 
 		/**
@@ -608,32 +760,57 @@ if ( ! class_exists( 'Nada_Salama_Customize' ) ) {
 
         /**
          * Sanitize boolean for phone number.
-         * 
+         *
          * @access public
-         * 
+         *
          * @param string $phone Phone number
-         * 
+         *
          * @return bool
          */
         public static function sanitize_phone($phone) {
-            return preg_replace( '/[^\d+]/', '', $phone );
+            return preg_replace( '/[^.0-9\\s]/', '', $phone );
+        }
+
+		/**
+         * Sanitize boolean for image.
+         *
+         * @access public
+         *
+         * @param string $image Image
+         *
+         * @return bool
+         */
+        public static function sanitize_image( $file, $setting ) {
+
+            // Allowed file types
+            $mimes = array(
+                'jpg|jpeg|jpe' => 'image/jpeg',
+                'gif'          => 'image/gif',
+                'png'          => 'image/png'
+            );
+
+            // Check file type from file name
+            $file_ext = wp_check_filetype( $file, $mimes );
+
+            // If file has a valid mime type return it, otherwise return default
+            return ( $file_ext['ext'] ? $file : $setting->default );
         }
 
         /**
          * Sanitize boolean for select.
-         * 
+         *
          * @access public
-         * 
+         *
          * @param bool $input
          * @param mixed $settings
          */
         function construction_landing_page_sanitize_select( $input, $setting ){
             // Ensure input is a slug.
             $input = sanitize_key( $input );
-            
+
             // Get list of choices from the control associated with the setting.
             $choices = $setting->manager->get_control( $setting->id )->choices;
-            
+
             // If the input is a valid key, return it; otherwise, return the default.
             return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
         }

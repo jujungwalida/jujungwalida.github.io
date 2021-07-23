@@ -1,0 +1,9 @@
+.section-products,
+.section-about-us,
+.section-why-choose-us {
+    @apply text-xl mt-4 mb-8 lg:mb-16;
+
+    p {
+        @apply my-4;
+    }
+}

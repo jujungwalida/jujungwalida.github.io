@@ -3,8 +3,6 @@
  * Nada Salama Starter Content
  *
  * @link https://make.wordpress.org/core/2016/11/30/starter-content-for-themes-in-4-7/
- *
- * @package WordPress
  */
 
 /**
@@ -19,121 +17,128 @@ function nada_salama_get_starter_content() {
 	// Define and register starter content to showcase the theme on new sites.
 	$starter_content = array(
 
+		// Featured Image for Products
+		'attachments' => array(
+			'featured-vanilla' => array(
+				'post_title' => 'About Cover Image',
+				'file'       => 'starter-contents/products/vanilla.jpg',
+			),
+			'featured-cinnamon' => array(
+				'post_title' => 'About Cover Image',
+				'file'       => 'starter-contents/products/cinnamon.jpg',
+			),
+			'featured-cocoa' => array(
+				'post_title' => 'About Cover Image',
+				'file'       => 'starter-contents/products/cocoa.jpg',
+			),
+			'featured-white-pepper' => array(
+				'post_title' => 'About Cover Image',
+				'file'       => 'starter-contents/products/white-pepper.jpg',
+			),
+			'featured-coffee' => array(
+				'post_title' => 'About Cover Image',
+				'file'       => 'starter-contents/products/coffee.jpg',
+			),
+			'featured-palm-sugar' => array(
+				'post_title' => 'About Cover Image',
+				'file'       => 'starter-contents/products/palm-sugar.jpg',
+			),
+
+			'image-logo' => array(
+				'post-title' => 'Logo',
+				'file'       => 'starter-contents/logo.png',
+			),
+
+			'image-about-us' => array(
+				'post-title' => 'Logo',
+				'file'       => 'starter-contents/about-us.jpg',
+			),
+		),
+
 		// Specify the core-defined pages to create and add custom thumbnails to some of them.
 		'posts'     => array(
 			'front' => array(
 				'post_type'    => 'page',
-				'post_title'   => esc_html_x( 'Create your website with blocks', 'Theme starter content', 'nadasalama' ),
-				'post_content' => '
-					<!-- wp:heading {"align":"wide","fontSize":"gigantic","style":{"typography":{"lineHeight":"1.1"}}} -->
-					<h2 class="alignwide has-text-align-wide has-gigantic-font-size" style="line-height:1.1">' . esc_html_x( 'Create your website with blocks', 'Theme starter content', 'nadasalama' ) . '</h2>
-					<!-- /wp:heading -->
-
-					<!-- wp:spacer -->
-					<div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
-					<!-- /wp:spacer -->
-
-					<!-- wp:columns {"verticalAlignment":"center","align":"wide","className":"is-style-nada-salama-columns-overlap"} -->
-					<div class="wp-block-columns alignwide are-vertically-aligned-center is-style-nada-salama-columns-overlap"><!-- wp:column {"verticalAlignment":"center"} -->
-					<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"align":"full","sizeSlug":"large"} -->
-					<figure class="wp-block-image alignfull size-large"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/roses-tremieres-hollyhocks-1884.jpg" alt="' . esc_attr__( '&#8220;Roses Trémières&#8221; by Berthe Morisot', 'nadasalama' ) . '"/></figure>
-					<!-- /wp:image -->
-
-					<!-- wp:spacer -->
-					<div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
-					<!-- /wp:spacer -->
-
-					<!-- wp:image {"align":"full","sizeSlug":"large","className":"is-style-nada-salama-image-frame"} -->
-					<figure class="wp-block-image alignfull size-large is-style-nada-salama-image-frame"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/in-the-bois-de-boulogne.jpg" alt="' . esc_attr__( '&#8220;In the Bois de Boulogne&#8221; by Berthe Morisot', 'nadasalama' ) . '"/></figure>
-					<!-- /wp:image --></div>
-					<!-- /wp:column -->
-
-					<!-- wp:column {"verticalAlignment":"center"} -->
-					<div class="wp-block-column is-vertically-aligned-center"><!-- wp:spacer -->
-					<div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
-					<!-- /wp:spacer -->
-
-					<!-- wp:image {"sizeSlug":"large","className":"alignfull size-full is-style-nada-salama-border"} -->
-					<figure class="wp-block-image size-large alignfull size-full is-style-nada-salama-border"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/young-woman-in-mauve.jpg" alt="' . esc_attr__( '&#8220;Young Woman in Mauve&#8221; by Berthe Morisot', 'nadasalama' ) . '"/></figure>
-					<!-- /wp:image --></div>
-					<!-- /wp:column --></div>
-					<!-- /wp:columns -->
-
-					<!-- wp:spacer {"height":50} -->
-					<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
-					<!-- /wp:spacer -->
-
-					<!-- wp:columns {"verticalAlignment":"top","align":"wide"} -->
-					<div class="wp-block-columns alignwide are-vertically-aligned-top"><!-- wp:column {"verticalAlignment":"top"} -->
-					<div class="wp-block-column is-vertically-aligned-top"><!-- wp:heading {"level":3} -->
-					<h3>' . esc_html_x( 'Add block patterns', 'Theme starter content', 'nadasalama' ) . '</h3>
-					<!-- /wp:heading -->
-
-					<!-- wp:paragraph -->
-					<p>' . esc_html_x( 'Block patterns are pre-designed groups of blocks. To add one, select the Add Block button [+] in the toolbar at the top of the editor. Switch to the Patterns tab underneath the search bar, and choose a pattern.', 'Theme starter content', 'nadasalama' ) . '</p>
-					<!-- /wp:paragraph --></div>
-					<!-- /wp:column -->
-
-					<!-- wp:column {"verticalAlignment":"top"} -->
-					<div class="wp-block-column is-vertically-aligned-top"><!-- wp:heading {"level":3} -->
-					<h3>' . esc_html_x( 'Frame your images', 'Theme starter content', 'nadasalama' ) . '</h3>
-					<!-- /wp:heading -->
-
-					<!-- wp:paragraph -->
-					<p>' . esc_html_x( 'Nada Salama includes stylish borders for your content. With an Image block selected, open the "Styles" panel within the Editor sidebar. Select the "Frame" block style to activate it.', 'Theme starter content', 'nadasalama' ) . '</p>
-					<!-- /wp:paragraph --></div>
-					<!-- /wp:column -->
-
-					<!-- wp:column {"verticalAlignment":"top"} -->
-					<div class="wp-block-column is-vertically-aligned-top"><!-- wp:heading {"level":3} -->
-					<h3>' . esc_html_x( 'Overlap columns', 'Theme starter content', 'nadasalama' ) . '</h3>
-					<!-- /wp:heading -->
-
-					<!-- wp:paragraph -->
-					<p>' . esc_html_x( 'Nada Salama also includes an overlap style for column blocks. With a Columns block selected, open the "Styles" panel within the Editor sidebar. Choose the "Overlap" block style to try it out.', 'Theme starter content', 'nadasalama' ) . '</p>
-					<!-- /wp:paragraph --></div>
-					<!-- /wp:column --></div>
-					<!-- /wp:columns -->
-
-					<!-- wp:spacer -->
-					<div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
-					<!-- /wp:spacer -->
-
-					<!-- wp:cover {"overlayColor":"green","contentPosition":"center center","align":"wide","className":"is-style-nada-salama-border"} -->
-					<div class="wp-block-cover alignwide has-green-background-color has-background-dim is-style-nada-salama-border"><div class="wp-block-cover__inner-container"><!-- wp:spacer {"height":20} -->
-					<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-					<!-- /wp:spacer -->
-
-					<!-- wp:paragraph {"fontSize":"huge"} -->
-					<p class="has-huge-font-size">' . esc_html_x( 'Need help?', 'Theme starter content', 'nadasalama' ) . '</p>
-					<!-- /wp:paragraph -->
-
-					<!-- wp:spacer {"height":75} -->
-					<div style="height:75px" aria-hidden="true" class="wp-block-spacer"></div>
-					<!-- /wp:spacer -->
-
-					<!-- wp:columns -->
-					<div class="wp-block-columns"><!-- wp:column -->
-					<div class="wp-block-column"><!-- wp:paragraph -->
-					<p><a href="http://example.com/">' . esc_html_x( 'Read the Theme Documentation', 'Theme starter content', 'nadasalama' ) . '</a></p>
-					<!-- /wp:paragraph --></div>
-					<!-- /wp:column -->
-
-					<!-- wp:column -->
-					<div class="wp-block-column"><!-- wp:paragraph -->
-					<p><a href="http://example.com/">' . esc_html_x( 'Check out the Support Forums', 'Theme starter content', 'nadasalama' ) . '</a></p>
-					<!-- /wp:paragraph --></div>
-					<!-- /wp:column --></div>
-					<!-- /wp:columns -->
-
-					<!-- wp:spacer {"height":20} -->
-					<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-					<!-- /wp:spacer --></div></div>
-					<!-- /wp:cover -->',
+				'post_title'   => esc_html_x( 'Lorem Ipsum', 'Lorem Ipsum', 'nadasalama' ),
+				'post_content' => '<!-- wp:paragraph --><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><!-- /wp:paragraph -->',
+				'post_excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
 			),
-			'about',
-			'contact',
-			'goblog',
+            'products' => array(
+                'post_type'    => 'page',
+                'post_title'   => esc_html_x( 'Products', 'Products', 'nadasalama' ),
+				'post_excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            ),
+			'vanilla' => array(
+                'post_type'   => 'product',
+                'post_title'  => esc_html_x( 'Vanilla', 'Vanilla', 'nadasalama' ),
+				'thumbnail'   => '{{featured-vanilla}}'
+            ),
+            'cinnamon' => array(
+                'post_type'  => 'product',
+                'post_title' => esc_html_x( 'Cinnamon', 'Cinnamon', 'nadasalama' ),
+				'thumbnail'  => '{{featured-cinnamon}}'
+            ),
+			'cocoa' => array(
+                'post_type'  => 'product',
+                'post_title' => esc_html_x( 'Cocoa', 'Cocoa', 'nadasalama' ),
+				'thumbnail'  => '{{featured-cocoa}}'
+            ),
+			'white-pepper' => array(
+                'post_type'  => 'product',
+                'post_title' => esc_html_x( 'White Pepper', 'White Pepper', 'nadasalama' ),
+				'thumbnail'  => '{{featured-white-pepper}}'
+            ),
+			'coffee' => array(
+                'post_type'  => 'product',
+                'post_title' => esc_html_x( 'Coffee', 'Coffee', 'nadasalama' ),
+				'thumbnail'  => '{{featured-coffee}}'
+            ),
+			'palm-sugar' => array(
+                'post_type'  => 'product',
+                'post_title' => esc_html_x( 'Palm Sugar', 'Palm Sugar', 'nadasalama' ),
+				'thumbnail'  => '{{featured-palm-sugar}}'
+            ),
+            'our-policies' => array(
+                'post_type'    => 'page',
+                'post_title'   => esc_html_x( 'Our Policies', 'Policies', 'nadasalama' ),
+				'post_excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            ),
+			'return-policies' => array(
+                'post_type'  => 'page',
+                'post_title' => esc_html_x( 'Return Policy', 'Return Policy', 'nadasalama' ),
+            ),
+			'shipping-policies' => array(
+                'post_type'  => 'page',
+                'post_title' => esc_html_x( 'Shipping Policy', 'Shipping Policy', 'nadasalama' ),
+            ),
+			'privacy-policies' => array(
+                'post_type'  => 'page',
+                'post_title' => esc_html_x( 'Privacy Policy', 'Privacy Policy', 'nadasalama' ),
+            ),
+			'terms-and-conditions' => array(
+                'post_type'  => 'page',
+                'post_title' => esc_html_x( 'Terms and Conditions', 'Terms and Conditions', 'nadasalama' ),
+            ),
+			'gallery' => array(
+                'post_type'    => 'page',
+                'post_title'   => esc_html_x( 'Gallery', 'Gallery', 'nadasalama' ),
+				'post_excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            ),
+			'about-us' => array(
+				'post_type'    => 'page',
+                'post_title'   => esc_html_x( 'About Us', 'About Us', 'nadasalama' ),
+				'post_excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+			),
+			'contact-us' => array(
+				'post_type'    => 'page',
+                'post_title'   => esc_html_x( 'Contact Us', 'Contact Us', 'nadasalama' ),
+				'post_excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+			),
+			'why-choose-us' => array(
+				'post_type'    => 'page',
+                'post_title'   => esc_html_x( 'Why Choose Us', 'Why Choose Us', 'nadasalama' ),
+				'post_excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+			),
 		),
 
 		// Default to a static front page and assign the front and posts pages.
@@ -141,38 +146,114 @@ function nada_salama_get_starter_content() {
 			'show_on_front'  => 'page',
 			'page_on_front'  => '{{front}}',
 			'page_for_posts' => '{{blog}}',
+
+			'custom_logo' => '{{image-logo}}',
+
+			'nada_salama_banner_enable_disable' => false,
+
+			'nada_salama_products_enable_disable' => true,
+			'nada_salama_products_page'           => '{{products}}',
+			'nada_salama_products_excerpt_full'   => 'excerpt',
+
+			'nada_salama_about_enable_disable' => true,
+			'nada_salama_about_page'           => '{{about-us}}',
+			'nada_salama_about_excerpt_full'   => 'excerpt',
+			'nada_salama_about_image'          => '{{image-about-us}}',
+
+			'nada_salama_why_choose_us_enable_disable' => true,
+			'nada_salama_why_choose_us_page'           => '{{why-choose-us}}',
+			'nada_salama_why_choose_us_excerpt_full'   => 'excerpt',
 		),
 
-		// Set up nav menus for each of the two areas registered in the theme.
+		// Navigation menu
 		'nav_menus' => array(
-			// Assign a menu to the "primary" location.
-			'primary' => array(
-				'name'  => esc_html__( 'Primary menu', 'nadasalama' ),
+			'main' => array(
+				'name'  => __( 'Main Menu', 'nadasalama' ),
 				'items' => array(
-					'link_home', // Note that the core "home" page is actually a link in case a static front page is not used.
-					'page_about',
-					'page_goblog',
-					'page_contact',
-				),
-			),
-
-			// Assign a menu to the "footer" location.
-			'footer'  => array(
-				'name'  => esc_html__( 'Secondary menu', 'nadasalama' ),
-				'items' => array(
-					'link_facebook',
-					'link_twitter',
-					'link_instagram',
-					'link_email',
+					'link_home',
+					'menu-products' => array(
+						'type' => 'post_type',
+						'object' => 'page',
+						'object_id' => '{{products}}',
+					),
+					'menu-vanilla' => array(
+						'type' => 'post_type',
+						'object' => 'product',
+						'object_id' => '{{vanilla}}',
+					),
+					'menu-cinnamon' => array(
+						'type' => 'post_type',
+						'object' => 'product',
+						'object_id' => '{{cinnamon}}',
+					),
+					'menu-cocoa' => array(
+						'type' => 'post_type',
+						'object' => 'product',
+						'object_id' => '{{cocoa}}',
+					),
+					'menu-white-pepper' => array(
+						'type' => 'post_type',
+						'object' => 'product',
+						'object_id' => '{{white-pepper}}',
+					),
+					'menu-coffee' => array(
+						'type' => 'post_type',
+						'object' => 'product',
+						'object_id' => '{{coffee}}',
+					),
+					'menu-palm-sugar' => array(
+						'type' => 'post_type',
+						'object' => 'product',
+						'object_id' => '{{palm-sugar}}',
+					),
+					'menu-our-policies' => array(
+						'type' => 'post_type',
+						'object' => 'page',
+						'object_id' => '{{our-policies}}',
+					),
+					'menu-return-policies' => array(
+						'type' => 'post_type',
+						'object' => 'page',
+						'object_id' => '{{return-policies}}',
+					),
+					'menu-shipping-policies' => array(
+						'type' => 'post_type',
+						'object' => 'page',
+						'object_id' => '{{shipping-policies}}',
+					),
+					'menu-privacy-policies' => array(
+						'type' => 'post_type',
+						'object' => 'page',
+						'object_id' => '{{privacy-policies}}',
+					),
+					'menu-terms-and-conditions' => array(
+						'type' => 'post_type',
+						'object' => 'page',
+						'object_id' => '{{terms-and-conditions}}',
+					),
+					'menu-gallery' => array(
+						'type' => 'post_type',
+						'object' => 'page',
+						'object_id' => '{{gallery}}',
+					),
+					'menu-about-us' => array(
+						'type' => 'post_type',
+						'object' => 'page',
+						'object_id' => '{{about-us}}',
+					),
+					'menu-contact-us' => array(
+						'type' => 'post_type',
+						'object' => 'page',
+						'object_id' => '{{contact-us}}',
+					),
 				),
 			),
 		),
+
 	);
 
 	/**
 	 * Filters the array of starter content.
-	 *
-	 * @since Nada Salama 1.0
 	 *
 	 * @param array $starter_content Array of starter content.
 	 */

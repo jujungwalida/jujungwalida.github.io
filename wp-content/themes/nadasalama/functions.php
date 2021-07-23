@@ -67,7 +67,7 @@ if ( ! function_exists( 'nada_salama_setup' ) ) {
 
 		register_nav_menus(
 			array(
-				'primary' => esc_html__( 'Primary Menu', 'nadasalama' ),
+				'main' => esc_html__( 'Main Menu', 'nadasalama' ),
 			)
 		);
 
@@ -101,16 +101,6 @@ if ( ! function_exists( 'nada_salama_setup' ) ) {
 		$editor_stylesheet_path = './assets/admin/css/editor.css';
         add_editor_style( $editor_stylesheet_path );
 
-		/*
-		* Adds starter content to highlight the theme on fresh sites.
-		* This is done conditionally to avoid loading the starter content on every
-		* page load, as it is a one-off operation only needed once in the customizer.
-		*/
-		if ( is_customize_preview() ) {
-			require get_template_directory() . '/inc/starter-content.php';
-			add_theme_support( 'starter-content', nada_salama_get_starter_content() );
-		}
-
 		// Add support for responsive embedded content.
 		add_theme_support( 'responsive-embeds' );
 
@@ -140,6 +130,19 @@ if ( ! function_exists( 'nada_salama_setup' ) ) {
 				'class'                => 'w-11 h-auto',
 			)
 		);
+
+		// Add excerpts to WordPress pages
+		add_post_type_support( 'page', 'excerpt' );
+	}
+
+	/*
+	 * Adds starter content to highlight the theme on fresh sites.
+	 * This is done conditionally to avoid loading the starter content on every
+	 * page load, as it is a one-off operation only needed once in the customizer.
+	 */
+	if ( is_customize_preview() ) {
+		require get_template_directory() . '/inc/starter-content.php';
+		add_theme_support( 'starter-content', nada_salama_get_starter_content() );
 	}
 }
 add_action( 'after_setup_theme', 'nada_salama_setup' );
@@ -196,6 +199,23 @@ function nada_salama_scripts() {
 add_action( 'wp_enqueue_scripts', 'nada_salama_scripts' );
 
 /**
+ * Enqueue scripts and styles for customizer.
+ *
+ * @return void
+ */
+function nada_salama_customizer_scripts() {
+	// Customizer Banner
+	wp_enqueue_script(
+		'nada-salama-customizer-banner',
+		get_template_directory_uri() . '/assets/admin/js/banner.js',
+		array( 'jquery','customize-preview' ),
+		wp_get_theme()->get( 'Version' ),
+		true
+	);
+}
+// add_action( 'customize_preview_init', 'nada_salama_customizer_scripts' );
+
+/**
  * Enqueue block editor script.
  *
  * @return void
@@ -232,9 +252,6 @@ require get_template_directory() . '/classes/class-nada-salama-svg-icons.php';
 // Enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/template-functions.php';
 
-// Menu functions and filters.
-//require get_template_directory() . '/inc/menu-functions.php';
-
 // Custom template tags for the theme.
 require get_template_directory() . '/inc/template-tags.php';
 
@@ -243,7 +260,16 @@ require get_template_directory() . '/classes/class-nada-salama-customize.php';
 new Nada_Salama_Customize();
 
 // Custom post types
-require get_template_directory() . '/cpt/product.php';
+require get_template_directory() . '/custom/post-types/products.php';
+
+// Widget About
+require get_template_directory() . '/custom/widgets/about.php';
+
+// Widget Contact
+require get_template_directory() . '/custom/widgets/contacts.php';
+
+// Widget Map
+require get_template_directory() . '/custom/widgets/map.php';
 
 // Custom walker nav menu
 require get_template_directory() . '/classes/class-nada-salama-walker-nav-menu.php';

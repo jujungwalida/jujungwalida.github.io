@@ -11,9 +11,8 @@ $wrapper_classes .= has_nav_menu( 'primary' ) ? ' has-menu' : '';
         <div class="flex justify-between items-center">
 
 			<?php get_template_part( 'template-parts/header/site-branding' ); ?>
-			<nav class="py-8">
-				<?php get_template_part( 'template-parts/header/site-nav' ); ?>
-			</nav>
+
+			<?php get_template_part( 'template-parts/header/site-nav' ); ?>
 
 		</div>
 	</div>

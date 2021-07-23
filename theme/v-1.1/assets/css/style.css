@@ -31350,6 +31350,24 @@ body {
   font-weight: 300;
 }
 
+.section-products, .section-about-us, .section-why-choose-us{
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+@media (min-width: 1024px){
+  .section-products, .section-about-us, .section-why-choose-us{
+    margin-bottom: 4rem;
+  }
+}
+
+.section-products p, .section-about-us p, .section-why-choose-us p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
 @media (min-width: 640px){
   .sm\:container{
     width: 100%;

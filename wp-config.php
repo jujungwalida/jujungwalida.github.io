@@ -2,9 +2,9 @@
 /**
  * The base configuration for WordPress
  *
- * The wp-config.php creation script uses this file during the
- * installation. You don't have to use the web site, you can
- * copy this file to "wp-config.php" and fill in the values.
+ * The wp-config.php creation script uses this file during the installation.
+ * You don't have to use the web site, you can copy this file to "wp-config.php"
+ * and fill in the values.
  *
  * This file contains the following configurations:
  *
@@ -31,34 +31,36 @@ define( 'DB_PASSWORD', 'secret' );
 /** MySQL hostname */
 define( 'DB_HOST', 'db' );
 
-/** Database Charset to use in creating database tables. */
+/** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
 
-/** The Database Collate type. Don't change this if in doubt. */
+/** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
 /**#@+
- * Authentication Unique Keys and Salts.
+ * Authentication unique keys and salts.
  *
- * Change these to different unique phrases!
- * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
- * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
+ * Change these to different unique phrases! You can generate these using
+ * the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}.
+ *
+ * You can change these at any point in time to invalidate all existing cookies.
+ * This will force all users to have to log in again.
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         '<dL9fUA[><UxiEb.jx#Emlg~GYJ#)Ic$HO3605Y[X `$UTDFP?@TL]Z>3rz(;&2i' );
-define( 'SECURE_AUTH_KEY',  'IjxU)J{{e,?6YUc;d|^ODBd9;0tfb1Og`,Hlw?xX%E7=8tTZHH.A7C:E?b`XU).-' );
-define( 'LOGGED_IN_KEY',    'e#4=#Q~e`2D-wv8f_k^PR|L0%a/$u:R.$LNpQHa:![m7wPed|KP>bVlRU[0]Re:Q' );
-define( 'NONCE_KEY',        'j$o<;=^Obg_N&c|(K}O[tFc}>CA5g,/)%]TTn@:sAvhG7!Us0,lqcz]u :=|6~]u' );
-define( 'AUTH_SALT',        'p*[c8tJ2p<fb*W-p>*,EYY4_y]JVHu_/zzv-FWOrG[m2kItQrsi%xBWSa|AuEg4.' );
-define( 'SECURE_AUTH_SALT', '!$SjclZ+ IJ3)zWTqAP]PiHuKkAwES7M@IN}PlO5!Li9u [>t-e7akv/Br,<0Kb]' );
-define( 'LOGGED_IN_SALT',   '(127_0fd0xM$-pJjV=4PcJMRW}hd1HxjF@u&9#={ug@yB0e(VZk]JoeCpeEJ%AX`' );
-define( 'NONCE_SALT',       '.J.Xfq[9N~}NQHa}D!37V1A4Xp|BQHQ33=-v=Ii-s1blXlNE1ZOldKI<lsqPMBVo' );
+define( 'AUTH_KEY',         ':pv{cZp,Q?mqB1;2n=Fq&fIs&c6=~6:`-*A9oVcm! [eszX_mxMtTzff~KzuN4;]' );
+define( 'SECURE_AUTH_KEY',  'gNQ**<+p>&6yQYieV<Jp1N^0w} }I>>pQgWs> @$x EIW`A_NA@`{Wu1Xhai6:a:' );
+define( 'LOGGED_IN_KEY',    'rMDY|wW8DiB5AW0XT%<?IyF$qR@):kv/%kw6wGkt?)t]ev|9hs>,~oEmet[8nWzZ' );
+define( 'NONCE_KEY',        '|N@MQYr$$5LoF]E>u|2NtGw{cddB{6xpc-?%st/[`ZIf[*]DFV-t=o>rHx{=-%;2' );
+define( 'AUTH_SALT',        'VgqAclUik}5+m&R!n=L6{6/M|[GP]-L_8,-(?g:<yPE-0UY>AwJ?dhVTxQ$<f^r?' );
+define( 'SECURE_AUTH_SALT', 't=VO=K=O-UpVb#y`064u$afI(MHfM#&JOJ6BT:C]W:/m$O%i5I[EL@*|(CQ?A;-D' );
+define( 'LOGGED_IN_SALT',   'Ulv6fL6n$]GvCeP*0}BA0g_7.b;t,os=:(` 4qu5]%6=9e|[3. dMKK`E/xofC67' );
+define( 'NONCE_SALT',       '40`Qdn:p.Ad%s: aa3;2]<@+rAB[^kur1A:aZ7[M/J0jmR7X+{6L$3?aj1uKhw-m' );
 
 /**#@-*/
 
 /**
- * WordPress Database Table prefix.
+ * WordPress database table prefix.
  *
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
@@ -78,6 +80,10 @@ $table_prefix = 'wp_';
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
 define( 'WP_DEBUG', false );
+
+/* Add any custom values between this line and the "stop editing" line. */
+
+
 
 /* That's all, stop editing! Happy publishing. */
 
