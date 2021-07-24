@@ -96,4 +96,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once ABSPATH . 'wp-settings.php';
 
 /** Block external HTTP requests */
-define('WP_HTTP_BLOCK_EXTERNAL', true);
+// define('WP_HTTP_BLOCK_EXTERNAL', true);
